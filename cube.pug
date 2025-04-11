@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    title= "Rubik's Cube Minesweeper"
+    meta(charset="utf-8")
+    link(type="text/css" rel="stylesheet" href="./style/css/cube.min.css")
+    
+
+  body
+  - var faces = ['top', 'front', 'right', 'back', 'left', 'bottom']
+  - var pieces = 26
+  #scene
+    #cube
+      while (pieces--)
+        .pieces 
+          each face in faces 
+            div(class = 'element ' + face)
+
+    script(type="text/javascript" src="./JS/cube.js")

@@ -1,0 +1,26 @@
+$element-size: 2em
+$base-color: #0A0A0A
+$faces: (left: (0, -90, 180), right: (0, 90, 90), back: (0, 180, -90), front: (0, 0, 0), bottom: (-90, 0, -90), top: (90, 0, 180))
+
+#scene
+  width: 100%
+  height: 100%
+  perspective: 1200px
+  transform-style: preserve-3d
+  div
+    position: absolute
+    transform-style: inherit
+
+#cube
+  > .piece
+    width: $element-size - .1em
+    height: $element-size - .1em
+    > .element
+      width: 100%
+      height: 100%
+      background: $base-color
+      outline: 1px solid transparent
+      border: .05em solid $base-color
+      @each $face, $angles in $faces
+        &.#{ $face }
+          transform: rotateX( nth($angles, 1) ) rotateY( nth($angles, 2) ) rotateZ( nth($angles, 3) ) translateZ( $element-size / 2 )
