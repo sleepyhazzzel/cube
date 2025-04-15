@@ -7,13 +7,15 @@ html(lang="en")
     
 
   body
-  - var faces = ['top', 'front', 'right', 'back', 'left', 'bottom']
-  - var pieces = 26
-  #scene
-    #cube
-      while (pieces--)
-        .pieces 
-          each face in faces 
-            div(class = 'element ' + face)
+    - var faces = ['left', 'right', 'back', 'front', 'bottom', 'top']
+    #cube_canvas
+      #cube
+        each face in faces
+          div(class=face + " face")
+            - var n = 0
+            each element in [0, 1, 2, 3, 4, 5, 6, 7, 8]
+              - n++
+              .cell(data-cell=n) #{n}
+
 
     script(type="text/javascript" src="./JS/cube.js")

@@ -1,0 +1,11 @@
+$size: 120px;
+$border-radius: 8px;
+
+$faces: (
+  left: (angles: (x: 0, y: -90, z: 180), color: #86C166),
+  right: (angles: (x: 0, y: 90, z: 90), color: #D75455),
+  back: (angles: (x: 0, y: 180, z: -90), color: #E98B2A),
+  front: (angles: (x: 0, y: 0, z: 0), color: #1B813E),
+  bottom: (angles: (x: -90, y: 0, z: -90), color: #0089A7),
+  top: (angles: (x: 90, y: 0, z: 180), color: #6E75A4)
+);
