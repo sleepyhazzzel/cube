@@ -4,7 +4,6 @@ html(lang="en")
     title= "Rubik's Cube Minesweeper"
     meta(charset="utf-8")
     link(type="text/css" rel="stylesheet" href="./style/css/cube.min.css")
-    
 
   body
     - var faces = ['left', 'right', 'back', 'front', 'bottom', 'top']
@@ -16,6 +15,4 @@ html(lang="en")
             each element in [0, 1, 2, 3, 4, 5, 6, 7, 8]
               - n++
               .cell(data-cell=n) #{n}
-
-
     script(type="text/javascript" src="./dist/cube.js")

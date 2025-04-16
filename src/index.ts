@@ -1,29 +1,34 @@
 const scene = document.getElementById('cube_canvas')
 const cube = document.getElementById('cube')
+cube!.style.transform = 'rotateX(-25deg) rotateY(-45deg)'
 
 scene?.addEventListener('mousedown', mousedown)
-scene?.addEventListener('mouseup', mouseup)
 
-let originX: number
-let originY: number
+let x: number = -45
+let y: number = -45
 
 function mousedown(event: MouseEvent) {
-  originX = event.clientX
-  originY = event.clientY
+  const originX = event.clientX
+  const originY = event.clientY
 
   scene?.addEventListener('mousemove', mousemove)
-}
+  scene?.addEventListener('mouseup', mouseup)
 
-function mousemove(event: MouseEvent) {
-  const currentX = event.clientX
-  const currentY = event.clientY
+  function mousemove(event: MouseEvent) {
+    const currentX = event.clientX
+    const currentY = event.clientY
 
-  const disX = currentX - originX
-  const disY = currentY - originY
+    const disX = currentX - originX
+    const disY = currentY - originY
 
-  cube!.style.transform = `rotateX(${disY}deg) rotateY(${disX}deg)`
-}
+    x = x + disX / 20
+    y = y + disY / 20
 
-function mouseup(event: MouseEvent) {
-  scene?.removeEventListener('mousemove', mousemove)
+    cube!.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`
+  }
+
+  function mouseup() {
+    scene?.removeEventListener('mousemove', mousemove)
+    scene?.removeEventListener('mouseup', mouseup)
+  }
 }

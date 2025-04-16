@@ -19,13 +19,12 @@
 
 #cube
   transform-style: preserve-3d
-  transform: rotateX(-45deg) rotateY(-45deg)
-  transition: transform 0.5s linerar
 
 .face
   position: absolute
   width: $size
   height: $size
+  background-color: #000
   border-radius: $border-radius
   display: grid
   grid-template-columns: repeat(3, 1fr)
@@ -35,8 +34,7 @@
   .cell
     width: 100%
     height: 100%
-    color: #000
-    border: 1px solid #fff
+    color: #fff
     border-radius: $border-radius
     user-select: none
 
@@ -45,4 +43,6 @@
     $angles: map-get($data, angles)
     $color: map-get($data, color)
     transform: rotateX(map-get($angles, x) + deg) rotateY(map-get($angles, y) + deg) rotateZ(map-get($angles, z) + deg) translateZ($size / 2)
-    background-color: $color
+    background-color: #000
+    .cell
+      background-color: $color
